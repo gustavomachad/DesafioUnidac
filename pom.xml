@@ -14,7 +14,7 @@
 	<name>desafio</name>
 	<description>CRUD unidac Desafio</description>
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>9</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
