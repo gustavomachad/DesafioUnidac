@@ -4,6 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+
+import org.hibernate.validator.constraints.br.CPF;
+
+
 
 @Entity
 public class Pessoa {
@@ -12,14 +17,26 @@ public class Pessoa {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	
+    @NotBlank
 	private String nome;
 	
-	private String CPF;
+   // @NotBlank(message = "Deve selecionar algo")
 	private String Cafe;
 	
+	public String getCafe() {
+		return Cafe;
+	}
+	public void setCafe(String cafe) {
+		Cafe = cafe;
+	}
+	
+	@CPF
+	private String CPF;
+	
+
 	@Deprecated
 	protected Pessoa() {}
-	
 	public Pessoa(String nome) {
 		this.nome= nome;	
 }
@@ -42,12 +59,7 @@ public class Pessoa {
 	public void setCPF(String cPF) {
 		CPF = cPF;
 	}
-	public String getCafe() {
-		return Cafe;
-	}
-	public void setCafe(String cafe) {
-		Cafe = cafe;
-	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -75,6 +87,8 @@ public class Pessoa {
 	public String toString() {
 		return "Pessoa [nome=" + nome + "]";
 	}
+	
+
 	
 	
 }

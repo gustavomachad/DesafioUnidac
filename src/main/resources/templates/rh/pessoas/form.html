@@ -2,33 +2,56 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8" />
+
 <title>Cadastro de cafe do colaborador</title>
 
+
 </head>
+
+
 <body>
-	
+	 
 
 	<div class="container my-2">
-		<h2>Editar Pessoa</h2>
+		<h2>Editar Colaborador</h2>
+		 
 		<form action="#" th:action="@{/rh/pessoas/salvar}" th:object="${pessoa}" method="POST">
 			<input type="hidden" id="id" th:field="*{id}">
 			
 			<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="text-danger"></span>
-			<input type="text" th:field="*{nome}" placeholder="Nome" class="form-control mb-4 col-4">
+			<input type="text" th:field="*{nome}" placeholder="Nome" class="form-control mb-4 col-4" pattern="([aA-zZ]+)">
 
-			<span th:if="${#fields.hasErrors('CPF')}" th:errors="*{CPF}" class="text-danger"></span>
+			<p><span th:if="${#fields.hasErrors('CPF')}" th:errors="*{CPF}" class="text-danger"></span>
 			<input type="text" th:field="*{CPF}" placeholder="CPF" class="form-control mb-4 col-4">
-      		
-      		<span th:if="${#fields.hasErrors('cafe')}" th:errors="*{cafe}" class="text-danger"></span>
-			<input type="text" th:field="*{cafe}" placeholder="Cafe" class="form-control mb-4 col-4">
+      		</p>
+      	<p>	<select name="Cafe">
+    <option value="" selected>Escolha uma comida</option>
+    <option value="Pão de queijo">Pão de queijo</option>
+    <option value="Torrada">Torrada</option>
+    <option value="Tapioca">Tapioca</option>
+  </p>
+         
+   <p>
+  	</select>
+   	<select name="">
+    <option value="Sem bebida" selected>Escolha uma bebida</option>
+    <option value="café quente">Café quente</option>
+    <option value="Suco de laranja">Suco de lajanja</option>
+    <option value="Suco de abacaxi">Suco de abacaxi</option>
+  	</select>
+  	</p>
+  	
+  	<p>
+  	<input type="text" name="Nome" size="40" placeholder="Observações" /> 
+  	</p>
    
       		
-
 			
 			<button type="submit" class="btn btn-info col-2">Salvar</button>
 		</form>
 		<hr>
-		<a th:href="@{/rh/pessoas}">Retornar para a lista de colaboradores</a>
-	</div>
+		<a th:href="@{/rh/pessoas} ">Retornar para a lista de colaboradores</a>
+	
 </body>
+</div>
 </html>

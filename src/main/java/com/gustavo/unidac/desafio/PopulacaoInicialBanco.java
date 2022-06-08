@@ -23,9 +23,8 @@ public class PopulacaoInicialBanco implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 		Pessoa p1 = new Pessoa("Gustavo");
-		p1.setCafe("Pão de queijo");
+
 		Pessoa p2 = new Pessoa("Pedro");
-		p2.setCafe("Café sem açucar");
 
 		pessoaRepo.save(p1);
 		pessoaRepo.save(p2);
