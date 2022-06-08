@@ -57,7 +57,7 @@ public class PessoaControle {
 		}
 		
 		pessoaRepo.save(pessoa);
-		return "https://desafiounidacacademiawlgustavo.herokuapp.com";
+		return "@{https://desafiounidacacademiawlgustavo.herokuapp.com} ";
 	}
 
 	@GetMapping("/rh/pessoas/excluir/{id}")
@@ -68,7 +68,7 @@ public class PessoaControle {
 		}
 
 		pessoaRepo.delete(pessoaOpt.get());
-		return "https://desafiounidacacademiawlgustavo.herokuapp.com";
+		return "@{https://desafiounidacacademiawlgustavo.herokuapp.com} ";
 	}
 
 		
