@@ -53,11 +53,11 @@ public class PessoaControle {
 	@PostMapping("/rh/pessoas/salvar")
 	public String salvarPessoa(@Valid @ModelAttribute("pessoa") Pessoa pessoa, BindingResult BindingResult) {
 		if(BindingResult.hasErrors()) {
-			return"https://desafiounidacacademiawlgustavo.herokuapp.com";
+			return"/rh/pessoas/form";
 		}
 		
 		pessoaRepo.save(pessoa);
-		return "redirect:/rh/pessoas";
+		return "redirect:https://desafiounidacacademiawlgustavo.herokuapp.com";
 	}
 
 	@GetMapping("/rh/pessoas/excluir/{id}")
@@ -68,7 +68,7 @@ public class PessoaControle {
 		}
 
 		pessoaRepo.delete(pessoaOpt.get());
-		return "redirect:/rh/pessoas";
+		return "redirect:https://desafiounidacacademiawlgustavo.herokuapp.com";
 	}
 
 		
