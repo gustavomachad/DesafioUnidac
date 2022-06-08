@@ -47,7 +47,7 @@ public class PessoaControle {
 	@GetMapping("/rh/pessoas")
 	public String pessoas(Model model) {
 		model.addAttribute("listaPessoas", pessoaRepo.findAll());
-		return "https://desafiounidacacademiawlgustavo.herokuapp.com";
+		return "/index";
 	}
 	
 	@PostMapping("/rh/pessoas/salvar")
@@ -57,7 +57,7 @@ public class PessoaControle {
 		}
 		
 		pessoaRepo.save(pessoa);
-		return "@{https://desafiounidacacademiawlgustavo.herokuapp.com} ";
+		return "/index";
 	}
 
 	@GetMapping("/rh/pessoas/excluir/{id}")
@@ -68,7 +68,7 @@ public class PessoaControle {
 		}
 
 		pessoaRepo.delete(pessoaOpt.get());
-		return "@{https://desafiounidacacademiawlgustavo.herokuapp.com} ";
+		return "/index ";
 	}
 
 		
