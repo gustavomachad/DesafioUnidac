@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Cadastro de cafe do colaborador</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+
+</head>
+<body>
+	<div class="container my-2">
+		<a th:href="@{/rh/pessoas/nova}" class="btn btn-primary btn-sm mb-3">Incluir colaborador</a>
+		<h1>Colaboradores:</h1>
+		<table border="1" class="table table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th>nome</th>
+					<th>cpf</th>
+					<th>cafe</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="pessoa : ${listaPessoas}">
+					<td th:text="${pessoa.nome}"></td>
+					<td th:text="${pessoa.CPF}"></td>
+					<td th:text="${pessoa.cafe}"></td>
+					<td>					
+					<td>
+						<a th:href="@{/rh/pessoas/{id}(id=${pessoa.id})}" class="btn btn-primary">Alterar</a>
+						<a th:href="@{/rh/pessoas/excluir/{id}(id=${pessoa.id})}" class="btn btn-danger">Excluir</a>		
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html> 
