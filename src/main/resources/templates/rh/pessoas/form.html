@@ -19,7 +19,7 @@
 			<input type="hidden" id="id" th:field="*{id}">
 			
 			<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="text-danger"></span>
-			<input type="text" th:field="*{nome}" placeholder="Nome" class="form-control mb-4 col-4" pattern="([aA-zZ]+)">
+			<input type="text" th:field="*{nome}" placeholder="Nome" class="form-control mb-4 col-4">
 
 			<p><span th:if="${#fields.hasErrors('CPF')}" th:errors="*{CPF}" class="text-danger"></span>
 			<input type="text" th:field="*{CPF}" placeholder="CPF" class="form-control mb-4 col-4">
