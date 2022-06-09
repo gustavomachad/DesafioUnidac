@@ -67,7 +67,7 @@ public class PessoaControle {
 	@GetMapping("/rh/pessoas/excluir/{id}")
 	public String excluirPessoa(@PathVariable("id") long id) {
 		Optional<Pessoa> pessoaOpt = pessoaRepo.findById(id);
-		if (pessoaOpt.isEmpty()) {
+		if (Optional.empty() != null) {
 			throw new IllegalArgumentException("Pessoa inválida.");
 		}
 
