@@ -1,10 +1,12 @@
-package com.gustavo.unidac.desafio.rh.controle;
+package com.gustavo.unidac.desafio.rh.service;
 
 import java.util.Optional;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +17,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.gustavo.unidac.desafio.rh.dominio.Pessoa;
 import com.gustavo.unidac.desafio.rh.dominio.PessoaRepositorio;
 
+@Service
+@Transactional
 @Controller
 public class PessoaControle {
 

@@ -2,6 +2,7 @@ package com.gustavo.unidac.desafio;
 
 import org.springframework.stereotype.Component;
 
+
 import com.gustavo.unidac.desafio.rh.dominio.Pessoa;
 import com.gustavo.unidac.desafio.rh.dominio.PessoaRepositorio;
 
@@ -16,7 +17,7 @@ import org.springframework.boot.CommandLineRunner;
 @Transactional
 public class PopulacaoInicialBanco implements CommandLineRunner {
 
-	@Autowired
+	@Autowired(required = false)
 	private PessoaRepositorio pessoaRepo;
 
 	@Override
