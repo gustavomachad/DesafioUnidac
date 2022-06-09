@@ -61,7 +61,7 @@ public class PessoaControle {
 		}
 		
 		pessoaRepo.save(pessoa);
-		return "redirect:/index";
+		return "redirect:/rh/pessoas";
 	}
 
 	@GetMapping("/rh/pessoas/excluir/{id}")

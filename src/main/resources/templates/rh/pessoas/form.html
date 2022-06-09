@@ -15,7 +15,7 @@
 	<div class="container my-2">
 		<h2>Editar Colaborador</h2>
 		 
-		<form action="#" th:action="@{/rh/pessoas/salvar}" th:object="${pessoa}" method="POST">
+		<form action="#" th:action="@{/rh/pessoas}" th:object="${pessoa}" method="POST">
 			<input type="hidden" id="id" th:field="*{id}">
 			
 			<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="text-danger"></span>
