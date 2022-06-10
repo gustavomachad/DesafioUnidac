@@ -28,7 +28,7 @@ public class PessoaControle {
 		this.pessoaRepo = pessoaRepo;
 	}
 	
-	@GetMapping("/rh/pessoas/nova")
+	@GetMapping("rh/pessoas/nova")
 	public String novaPessoa(Model model) {
 		
 		model.addAttribute("pessoa", new Pessoa(""));
@@ -36,7 +36,7 @@ public class PessoaControle {
 		return "rh/pessoas/form";
 	}
 	
-	@GetMapping("/rh/pessoas/{id}")
+	@GetMapping("rh/pessoas/{id}")
 	public String alterarPessoa(@PathVariable("id") long id, Model model) {
 		Optional<Pessoa> pessoaOpt = pessoaRepo.findById(id);
 		if (pessoaOpt.isPresent()) {
@@ -48,13 +48,13 @@ public class PessoaControle {
 		return "rh/pessoas/form";
 	}
 	
-	@GetMapping("/rh/pessoas")
+	@GetMapping("rh/pessoas")
 	public String pessoas(Model model) {
 		model.addAttribute("listaPessoas", pessoaRepo.findAll());
 		return "index";
 	}
 	
-	@PostMapping("/rh/pessoas/salvar")
+	@PostMapping("rh/pessoas/salvar")
 	public String salvarPessoa(@Valid @ModelAttribute("pessoa") Pessoa pessoa, BindingResult BindingResult) {
 		if(BindingResult.hasErrors()) {
 			return"rh/pessoas/form";
@@ -64,7 +64,7 @@ public class PessoaControle {
 		return "redirect:/rh/pessoas";
 	}
 
-	@GetMapping("/rh/pessoas/excluir/{id}")
+	@GetMapping(" rh/pessoas/excluir/{id}")
 	public String excluirPessoa(@PathVariable("id") long id) {
 		Optional<Pessoa> pessoaOpt = pessoaRepo.findById(id);
 		if (pessoaOpt.isPresent())  {
@@ -72,7 +72,7 @@ public class PessoaControle {
 		}
 
 		pessoaRepo.delete(pessoaOpt.get());
-		return "redirect:/rh/pessoas";
+		return "redirect:rh/pessoas";
 	}
 
 		
