@@ -64,18 +64,18 @@ public class PessoaControle {
 		return "redirect:/rh/pessoas";
 	}
 
-	@GetMapping(" rh/pessoas/excluir/{id}")
+	@GetMapping("/rh/pessoas/excluir/{id}")
 	public String excluirPessoa(@PathVariable("id") long id) {
 		Optional<Pessoa> pessoaOpt = pessoaRepo.findById(id);
-		if (pessoaOpt.isPresent())  {
+		if (pessoaOpt.isEmpty()) {
 			throw new IllegalArgumentException("Pessoa inválida.");
 		}
-
+		
 		pessoaRepo.delete(pessoaOpt.get());
 		return "redirect:/rh/pessoas";
 	}
 
-		
+	
 	
 }
 
