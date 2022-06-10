@@ -51,7 +51,7 @@ public class PessoaControle {
 	@GetMapping("/rh/pessoas")
 	public String pessoas(Model model) {
 		model.addAttribute("listaPessoas", pessoaRepo.findAll());
-		return "/index";
+		return "index";
 	}
 	
 	@PostMapping("/rh/pessoas/salvar")
