@@ -23,11 +23,6 @@ public class PopulacaoInicialBanco implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		Pessoa p1 = new Pessoa("Gustavo");
-
-		Pessoa p2 = new Pessoa("Pedro");
-
-		pessoaRepo.save(p1);
-		pessoaRepo.save(p2);
+	
 	}
 }
