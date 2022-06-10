@@ -39,13 +39,19 @@ public class PessoaControle {
 	@GetMapping("/rh/pessoas/{id}")
 	public String alterarPessoa(@PathVariable("id") long id, Model model) {
 		Optional<Pessoa> pessoaOpt = pessoaRepo.findById(id);
-		if (!pessoaOpt.isPresent()) {
+		if (pessoaOpt.isPresent()) {
 			throw new IllegalArgumentException("Pessoa inválida.");
 		}
 		
 		model.addAttribute("pessoa", pessoaOpt.get());
 		
 		return "rh/pessoas/form";
+	}
+	
+	@GetMapping("/rh/pessoas")
+	public String pessoas(Model model) {
+		model.addAttribute("listaPessoas", pessoaRepo.findAll());
+		return "/index";
 	}
 	
 	@PostMapping("/rh/pessoas/salvar")
@@ -55,13 +61,13 @@ public class PessoaControle {
 		}
 		
 		pessoaRepo.save(pessoa);
-		return "redirect:/index";
+		return "redirect:/rh/pessoas";
 	}
 
 	@GetMapping("/rh/pessoas/excluir/{id}")
 	public String excluirPessoa(@PathVariable("id") long id) {
 		Optional<Pessoa> pessoaOpt = pessoaRepo.findById(id);
-		if (Optional.empty() != null) {
+		if (pessoaOpt.isEmpty())  {
 			throw new IllegalArgumentException("Pessoa inválida.");
 		}
 
