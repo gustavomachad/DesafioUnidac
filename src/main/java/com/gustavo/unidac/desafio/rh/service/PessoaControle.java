@@ -48,12 +48,6 @@ public class PessoaControle {
 		return "rh/pessoas/form";
 	}
 	
-	@GetMapping("/rh/pessoas")
-	public String pessoas(Model model) {
-		model.addAttribute("listaPessoas", pessoaRepo.findAll());
-		return "/index";
-	}
-	
 	@PostMapping("/rh/pessoas/salvar")
 	public String salvarPessoa(@Valid @ModelAttribute("pessoa") Pessoa pessoa, BindingResult BindingResult) {
 		if(BindingResult.hasErrors()) {

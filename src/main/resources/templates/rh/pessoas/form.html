@@ -5,17 +5,13 @@
 
 <title>Cadastro de cafe do colaborador</title>
 
-
 </head>
-
-
 <body>
 	 
-
 	<div class="container my-2">
 		<h2>Editar Colaborador</h2>
 		 
-		<form action="#" th:action="@{/index" th:object="${pessoa}" method="POST">
+		<form action="#" th:action="@{/rh/pessoas/salvar}" th:object="${pessoa}" method="POST">
 			<input type="hidden" id="id" th:field="*{id}">
 			
 			<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="text-danger"></span>
@@ -40,13 +36,11 @@
     <option value="Suco de abacaxi">Suco de abacaxi</option>
   	</select>
   	</p>
-  	
+  
   	<p>
   	<input type="text" name="Nome" size="40" placeholder="Observações" /> 
   	</p>
-   
-      		
-			
+
 			<button type="submit" class="btn btn-info col-2">Salvar</button>
 		</form>
 		<hr>
