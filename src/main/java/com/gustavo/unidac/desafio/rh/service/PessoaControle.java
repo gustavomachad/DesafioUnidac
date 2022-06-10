@@ -72,7 +72,7 @@ public class PessoaControle {
 		}
 
 		pessoaRepo.delete(pessoaOpt.get());
-		return "redirect:rh/pessoas";
+		return "redirect:/rh/pessoas";
 	}
 
 		
