@@ -57,7 +57,7 @@ public class PessoaControle {
 	@PostMapping("/rh/pessoas/salvar")
 	public String salvarPessoa(@Valid @ModelAttribute("pessoa") Pessoa pessoa, BindingResult BindingResult) {
 		if(BindingResult.hasErrors()) {
-			return"/rh/pessoas/form";
+			return"rh/pessoas/form";
 		}
 		
 		pessoaRepo.save(pessoa);
