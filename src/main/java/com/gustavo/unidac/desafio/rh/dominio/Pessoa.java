@@ -25,7 +25,8 @@ public class Pessoa {
 	private String nome;
 	
    // @NotBlank(message = "Deve selecionar algo")
-	private String Cafe;
+    @Column(unique=true)
+    private String Cafe;
 	
 	public String getCafe() {
 		return Cafe;
