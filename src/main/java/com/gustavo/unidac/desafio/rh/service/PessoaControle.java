@@ -39,12 +39,11 @@ public class PessoaControle {
 	@GetMapping("rh/pessoas/{id}")
 	public String alterarPessoa(@PathVariable("id") long id, Model model) {
 		Optional<Pessoa> pessoaOpt = pessoaRepo.findById(id);
-		if (pessoaOpt.isPresent()) {
+		if (pessoaOpt.isEmpty()) {
 			throw new IllegalArgumentException("Pessoa inválida.");
 		}
 		
 		model.addAttribute("pessoa", pessoaOpt.get());
-		
 		return "rh/pessoas/form";
 	}
 	
@@ -58,12 +57,16 @@ public class PessoaControle {
 	public String salvarPessoa(@Valid @ModelAttribute("pessoa") Pessoa pessoa, BindingResult BindingResult) {
 		if(BindingResult.hasErrors()) {
 			return"rh/pessoas/form";
+		}  else 
+		{ if (pessoaRepo.findByCpf(pessoa.getCPF()) == null)
+		if (pessoaRepo.findByCafe(pessoa.getCafe()) == null){
+				pessoaRepo.save(pessoa);
+			 } 
 		}
-		
-		pessoaRepo.save(pessoa);
 		return "redirect:/rh/pessoas";
 	}
-
+	
+	
 	@GetMapping("/rh/pessoas/excluir/{id}")
 	public String excluirPessoa(@PathVariable("id") long id) {
 		Optional<Pessoa> pessoaOpt = pessoaRepo.findById(id);

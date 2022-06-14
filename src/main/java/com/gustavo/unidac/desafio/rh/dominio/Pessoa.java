@@ -25,7 +25,7 @@ public class Pessoa {
 	private String nome;
 	
    // @NotBlank(message = "Deve selecionar algo")
-    @Column(unique=true)
+  
     private String Cafe;
 	
 	public String getCafe() {
@@ -35,7 +35,7 @@ public class Pessoa {
 		Cafe = cafe;
 	}
 	
-	@Column(unique=true)
+	
 	@CPF
 	private String CPF;
 	
