@@ -7,8 +7,9 @@
 
 </head>
 <body>
-	 
-	<div class="container my-2">
+<main>
+	 <section class "Cadastro">
+	
 		<h2>Editar Colaborador</h2>
 		 
 		<form action="#" th:action="@{/rh/pessoas/salvar}" th:object="${pessoa}" method="POST">
@@ -21,6 +22,7 @@
 			<input type="text" th:field="*{CPF}" placeholder="CPF" class="form-control mb-4 col-4">
       		</p>
       	<p>	<select name="Cafe">
+ 
     <option value="" selected>Escolha uma comida</option>
     <option value="Pão de queijo">Pão de queijo</option>
     <option value="Torrada">Torrada</option>
@@ -45,7 +47,13 @@
 		</form>
 		<hr>
 		<a th:href="@{/rh/pessoas}">Retornar para a lista de colaboradores</a>
+		
+		
+	</section>
 	
+	
+
+	</main>
 </body>
-</div>
+
 </html>

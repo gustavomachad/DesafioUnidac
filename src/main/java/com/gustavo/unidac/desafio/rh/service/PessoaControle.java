@@ -9,10 +9,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.gustavo.unidac.desafio.rh.dominio.Pessoa;
 import com.gustavo.unidac.desafio.rh.dominio.PessoaRepositorio;
@@ -27,6 +29,7 @@ public class PessoaControle {
 	public PessoaControle(PessoaRepositorio pessoaRepo) {
 		this.pessoaRepo = pessoaRepo;
 	}
+	
 	
 	@GetMapping("rh/pessoas/nova")
 	public String novaPessoa(Model model) {
@@ -53,19 +56,35 @@ public class PessoaControle {
 		return "index";
 	}
 	
+
+	
 	@PostMapping("rh/pessoas/salvar")
-	public String salvarPessoa(@Valid @ModelAttribute("pessoa") Pessoa pessoa, BindingResult BindingResult) {
-		if(BindingResult.hasErrors()) {
-			return"rh/pessoas/form";
+	 public ModelAndView insert(@Valid Pessoa pessoa, BindingResult bindingResult) {
+		if(bindingResult.hasErrors()) {
 		}  else 
-		{ if (pessoaRepo.findByCpf(pessoa.getCPF()) == null)
-		if (pessoaRepo.findByCafe(pessoa.getCafe()) == null){
-				pessoaRepo.save(pessoa);
-			 } 
+		{{ if (pessoaRepo.findByCpf(pessoa.getCPF()) == null)
+			if (pessoaRepo.findByCafe(pessoa.getCafe()) == null){
+    			  ModelAndView mv = new ModelAndView("redirect:/rh/pessoas");
+                  pessoaRepo.save(pessoa);
+          
+              mv.addObject("mensagem", "Colaborador " + pessoa.getNome() + " inserido com sucesso.");
+              return mv;
+		} else {
+            ModelAndView mv = new ModelAndView("redirect:/rh/pessoas");
+            mv.addObject("mensagem", "Erro: cpf ou pedido já cadastrado.");
+            return mv;
+            
 		}
-		return "redirect:/rh/pessoas";
+		
+		}
+		return null;
+	}
+		return null;
+
 	}
 	
+	
+
 	
 	@GetMapping("/rh/pessoas/excluir/{id}")
 	public String excluirPessoa(@PathVariable("id") long id) {
@@ -78,7 +97,7 @@ public class PessoaControle {
 		return "redirect:/rh/pessoas";
 	}
 
+	}
 	
-	
-}
+
 

@@ -1,0 +1,33 @@
+@charset "ISO-8859-1";
+
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@200&display=swap');
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Lexend', sans-serif;
+
+}
+
+:root {
+ --white: #FFF;
+ --whitesmoke: #F9F9F9;
+ --light-grey: #ECECEC;
+ --grey: #C4C4C4;
+ --medium-grey: #A7A7A7;
+ --deep-grey: #343434;
+ --black: #000000;
+ --blue: #1B77F3;
+ --red: #CF3C3F;
+}
+
+.cadastro {
+	dislplay: flex;
+	flex-direction: column;
+	aling-items: center;
+	width: 100%;
+	max-width: 500px;
+	min-height: 100vh;
+	background-color: #999;
+}
